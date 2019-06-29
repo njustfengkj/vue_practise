@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>instructions</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#root",
+                data: {//vue实例所对应的html变量范围
+                    msg:"hello world",
+                    age:19,
+                    arr:['aa','bb','cc'],
+                    obj:{
+                        name:"asdg",
+                        id:"123"
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+    <div>{{msg}}--{{age}}</div>
+    <ul>
+        <li v-for="(e,i) in arr">{{i}}:{{e}}</li>
+    </ul>
+    <ul>
+        <li v-for="(e,i) in arr">{{i}}:{{e}}</li>
+    </ul>
+</div>
+</body>
+</html>

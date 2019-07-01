@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload=function () {
+            new Vue({
+                el:"#root",
+                data: {
+                    disabledFlag:true,
+                    msg: "hello idt",
+                    age: 23,
+                    html:"<p>11111</p>"
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="root">
+        <div v-text="age"></div>
+        <p>{{age}}</p>
+        <input v-model="age">
+<!--        禁用表单-->
+        <input v-model="age" :disabled="disabledFlag">
+    </div>
+</body>
+</html>

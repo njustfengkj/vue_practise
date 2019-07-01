@@ -28,7 +28,8 @@
                     class_a1:"a1",
                     class_a2:"a2",
                     class_a3:"a3",
-                    class_a4:{color:'#f60'},
+                    class_a4:{color:'#000'},
+                    class_a5:{color:'#f60'},
                     arrCSS:[],
                     cssFlag:false
                 },
@@ -98,6 +99,11 @@
 
     <div :style="{color:'red',background:'#f60'}">iuajsdhfiuh</div>
     <div :style="class_a4">sdafgdsag</div>
+    <div :style="[class_a4,class_a5]">asdfdsaf</div>
+
+<!--    三目运算-->
+    <div :class="flag? class_a1:class_a2">asdfasdfdsafsa</div>
+    <div :class="flag? class_a4:class_a5">sadfvv</div>
 </div>
 </body>
 </html>

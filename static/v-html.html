@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解决闪烁的问题(元素开始的时候还没有加载完)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload=function () {
+            new Vue({
+                el:"#root",
+                data: {
+                    msg: "hello idt",
+                    age: 23,
+                    html:"<p>11111</p>"
+                }
+            })
+        }
+    </script>
+    <style>
+        /*必须要配置样式*/
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div v-cloak>{{msg}}:{{age}}</div>
+        <div v-text="msg+':'+age"></div>
+        <div v-text="html"></div>
+        <div v-html="html"></div>
+    </div>
+</body>
+</html>

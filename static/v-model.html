@@ -12,7 +12,16 @@
                     disabledFlag:true,
                     msg: "hello idt",
                     age: 23,
-                    html:"<p>11111</p>"
+                    html:"<p>11111</p>",
+                    che:false,
+                    arr:[],
+                    gender:1,
+                    options:[
+                        {text:"dance",value:0},
+                        {text:"sing",value:1},
+                        {text:"game",value:2}
+                    ],
+                    selected:'2'
                 }
             })
         }
@@ -25,6 +34,26 @@
         <input v-model="age">
 <!--        禁用表单-->
         <input v-model="age" :disabled="disabledFlag">
+        <div>
+<!--            单个复选框-->
+            <input type="checkbox" v-model="che">123{{che}}
+<!--            多个复选框-->
+            <input type="checkbox" v-model="arr" value=0>老师
+            <input type="checkbox" v-model="arr" value=1>学生
+            <input type="checkbox" v-model="arr" value=2>家长
+            {{arr}}
+        </div>
+        <div>
+            <input type="radio" v-model="gender" name="gender" value="0">男
+            <input type="radio" v-model="gender" name="gender" value="1">女
+            {{gender}}
+        </div>
+        <div>
+            <select v-model="selected">
+                <option v-for="(e,i) in options" :value="e.value">{{e.text}}</option>
+            </select>
+            {{selected}}
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-event(事件传播)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload=function () {
+            new Vue({
+                el:"#root",
+                methods:{
+                    showA:function(){
+                        console.log("aaa");
+                    },
+                    showB:function(){
+                        console.log("bbb");
+                    },
+                    showC:function(){
+                        console.log("ccc");
+                    }
+                }
+            })
+        }
+    </script>
+    <style>
+        .a{
+            border:#f60 solid 1px;
+            width: 300px;
+        }
+        .b{
+            border:#f60 solid 1px;
+            width: 200px;
+        }
+        .c{
+            border:#f60 solid 1px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div @click="showA()" class="a">A
+            <div @click="showB()" class="b">B
+                <div @click="showC()" class="c">C</div>
+<!--                组织事件冒泡 原理是event.stopPropagation-->
+                <div @click.stop="showC()" class="c">C stop propagation</div>
+            </div>
+        </div>
+<!--        阻止默认行为-->
+        <a href="http://www.baidu.com" @click="showA()">clickA</a>
+        <a href="http://www.baidu.com" @click.prevent="showA()">click</a>
+        <a @click="showA()">click</a>
+<!--        只执行一次 addEnvent removeEvent-->
+        <button @click.once="showB()">once</button>
+    </div>
+</body>
+</html>

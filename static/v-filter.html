@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>filter</title>
+    <title>filter and keyboard actions</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         window.onload=function () {
@@ -12,11 +12,19 @@
             });
             new Vue({
                 el:"#root",
+                data:{
+                    curTime:'1562470365'
+                },
                 // 局部过滤器
                 filters:{
                     // 数字保留几位小数
-                    number:function (num,n) {
+                    number:function (num,n=6) {
                         return num.toFixed(n);
+                    },
+                    // 格式化事件戳
+                    date(data){
+                        let d=new Date(data*1000);
+                        return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
                     }
                 }
             });
@@ -28,6 +36,10 @@
 <!--        管道语法-->
         <div>{{1|addZero}}</div>
         <div>{{10|addZero}}</div>
+<!--        过滤器参数-->
+        <div>{{3.1415926|number(3)}}</div>
+        <div>{{3.1415926|number}}</div>
+        <div>{{curTime|date}}</div>
     </div>
 </body>
 </html>

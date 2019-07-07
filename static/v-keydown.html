@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-keydown</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#root',
+                data:{
+                    indicator:0
+                },
+                methods:{
+                    enter(e){
+                        console.log(e);
+                        console.log("enter....");
+                    },
+                    key(e){
+                        console.log(e);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="root">
+<!--        键盘按键code-->
+        <input type="text" @keydown.13="enter($event)">
+        <input type="text" @keydown.enter="enter(this)">
+        <input type="text" @keypress.enter="enter()">
+        <input type="text" @keyup.enter="enter()">
+    </div>
+    <div>
+<!--        键盘组合键alt+a-->
+        <input type="text" @keydown.alt.65="key($event)">alt+a
+    </div>
+</body>
+</html>

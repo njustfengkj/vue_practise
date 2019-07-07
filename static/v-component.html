@@ -22,6 +22,8 @@
             new Vue({
                 el:'#root',
                 data:{
+                    flag:'my-tab',
+                    flag2:'my-change1',
                     title:"my-address",
                     cur:1
                 },
@@ -46,6 +48,28 @@
                                 tabTitle:['标题一','标题二','标题三'],
                                 tabContent:['内容一','内容二','内容三'],
                                 cur2:1
+                            }
+                        }
+                    },
+                    'my-tr':{
+                        template:"#myTr"
+                    },
+                    'my-slot':{
+                        template:"#mySlot"
+                    },
+                    'my-change1':{
+                        template:'<h1>{{x}}</h1>',
+                        data:function () {
+                            return {
+                                x:Math.random()
+                            }
+                        }
+                    },
+                    'my-change2':{
+                        template:'<h3>{{x}}</h3>',
+                        data:function () {
+                            return {
+                                x:Math.random()
                             }
                         }
                     }
@@ -87,9 +111,25 @@
             </div>
         </div>
     </template>
+    <template id="myTr">
+        <tr>
+            <td>aaa</td>
+            <td>bbb</td>
+        </tr>
+    </template>
+    <template id="mySlot">
+        <div>
+            <p>my slot</p>
+<!--            空白的位置理解为插槽，可以自己去填充-->
+            <slot name="s1"></slot>
+            <p>xxxx</p>
+            <slot name="s2"></slot>
+        </div>
+    </template>
 </head>
 <body>
     <div id="root">
+<!--        创建组件-->
         <hello></hello>
         <hello-world></hello-world>
         <my-world></my-world>
@@ -97,6 +137,40 @@
         <my-address2></my-address2>
 
         <my-tab></my-tab>
+<!--        组件高级用法-->
+        <table border="1">
+<!--            <my-tr></my-tr>-->
+<!--            is指令：这之中的内容是一个组件，按组件的方式解析-->
+            <tr is="my-tr"></tr>
+        </table>
+<!--        插槽-->
+<!--        设计模式 模板模式-->
+        <my-slot>
+<!--            ul这个节点的东西插入到s1中-->
+            <ul slot="s1">
+                <li>111</li>
+                <li>222</li>
+            </ul>
+            <!--ul这个节点的东西插入到s2中-->
+            <ul slot="s2">
+                <li>aaa</li>
+                <li>bbb</li>
+            </ul>
+        </my-slot>
+<!--        动态组件-->
+        <button @click="flag='my-tab'">my-tab</button>
+        <button @click="flag='my-address'">my-address</button>
+<!--        :is与上面的区别是 data变量-->
+        <component :is="flag"></component>
+<!--        状态-->
+        <button @click="flag2='my-change1'">my-change1</button>
+        <button @click="flag2='my-change2'">my-change2</button>
+        <component :is="flag2"></component>
+<!--        如果要求状态不变-->
+<!--        缓存非活动组件-->
+        <keep-alive>
+            <component :is="flag2"></component>
+        </keep-alive>
     </div>
 </body>
 </html>

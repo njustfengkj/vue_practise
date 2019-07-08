@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>select area</title>
+<meta chartset="utf-8">
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="siteData.js"></script>
+<script src="address-component.js"></script>
+</head>
+<body>
+
+<div style="padding: 10px 100px 10px;">
+    <div class="input-group" style="width:600px">
+        <span class="input-group-addon">站点：</span>
+        <input type=text name="areaZH" value="" class="form-control" placeholder="选择站点"/><input type=hidden name="areaID"/>
+    </div>
+</div>
+
+<div style="padding: 0px 100px 10px;width:800px">
+    <div class="panel panel-info" style="display:none;">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <span id="all">全部省份</span>
+                <!-- <span id="a,b,c,d">ABCD</span>
+                <span id="e,f,g,h,j">EFGHJ</span>
+                <span id="k,l,m,n">KLMN</span>
+                <span id="p,q,r,s,t,w">PQRSTW</span>
+                <span id="x,y,z">XYZ</span> -->
+            </div>
+        </div>
+        <div class="panel-body">
+            <!--省-->
+            <div class="province">
+                <!--
+                <div>湖北省</div>
+                <div>浙江省</div>
+                <div>湖北省</div>-->
+            </div>
+            <!--市-->
+            <div class="city"  style="display:none;">
+                <!--<div><input type="checkbox" name="checkbox" value="checkbox1">武汉市</div>
+                <div>潜江市</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

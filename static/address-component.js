@@ -52,8 +52,7 @@ var CitySelector = {
         // 二般写法
         this.allProvince = provinces.map(p => {
             let province = new Province(p[0], p[1], p[2]);
-            let cities = this._findCityByProvince(p[1]);
-            province.cities = cities;
+            province.cities = this._findCityByProvince(p[1]);
             return province;
         })
     },

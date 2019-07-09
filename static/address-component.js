@@ -26,7 +26,7 @@ var CitySelector = {
         });
         // 隐藏面板
         $(document).click(function (e) {
-            if ($(e.target).attr("name") != "areaZH") {
+            if ($(e.target).attr("name") !== "areaZH") {
                 $(".panel").hide();
             }
         });

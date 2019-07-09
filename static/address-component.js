@@ -94,10 +94,10 @@ var CitySelector = {
             cities='';
             cities=provinceObj.cities.map(o=>{
                 return `<div class="checkbox">
-<label>
-<input type="checkbox" value="${o.cityName}">${o.cityName}
-</label>
-</div>`
+                            <label>
+                                <input type="checkbox" value="${o.cityName}">${o.cityName}
+                            </label>
+                        </div>`
             }).join('');
             cities+="<button class='btn btn-primary' name='ok'>确定</button>";
             cities+="<button class='btn btn-primary' name='ok'>取消</button>";

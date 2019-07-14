@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图片懒加载</title>
+</head>
+
+<style>
+    body{padding:10px;}
+    .imgs>div {
+		border:2px dashed #000;
+		width: 300px;
+		height: 300px;
+    }
+	.imgs {
+		margin: 0 auto;
+		width: 300px;
+	}
+</style>
+
+<body>
+<h3>图片懒加载原理分析</h3>
+<div class="imgs">
+    <div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/1.jpg" alt="01图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/2.jpg" alt="02图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/3.jpg" alt="03图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/4.jpg" alt="04图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/5.jpg" alt="05图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/6.jpg" alt="06图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/7.jpg" alt="07图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/8.jpg" alt="08图片">
+	</div>
+	<div>
+		<img width=300 height=300 src="images/loading.gif" data-src="images/9.jpg" alt="09图片">
+	</div>
+</div>
+</body>
+<script src="lazyload.js"></script>
+</html>

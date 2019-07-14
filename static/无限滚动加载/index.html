@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vue无限滚动</title>
+    <style>
+        .scroll-container {
+            width: 80%;
+            margin: 0px auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+<div id="app">
+    <div class="scroll-container">
+        <div v-for="o in data" style="border: 1px solid #eee">
+            <div style="padding: 10px;">
+                <h3>{{o.title}}</h3>
+                <p>{{o.body}}</p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+<!--        与v-show的区别-->
+        <div v-if="isLoading">
+            Loading
+        </div>
+    </div>
+</div>
+</body>
+<script src="demo.js"></script>
+</html>
